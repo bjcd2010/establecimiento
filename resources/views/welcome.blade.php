@@ -30,7 +30,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Establecimientos nuevo commit 2020
+                    Establecimientos nuevo commit 2020 - 2
                 </div>
 
                 
