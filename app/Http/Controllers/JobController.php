@@ -19,7 +19,7 @@ class JobController extends Controller
         $data=[
             'status'=>'success',
             'code'=> 200,
-            'jobs'=>$jobs
+            'jobs'=>$jobs->load('establecimiento')
         ];
 
         return response()->json($data);
@@ -77,7 +77,22 @@ class JobController extends Controller
      */
     public function update(Request $request, Job $job)
     {
-        //
+        //return 'upadate';
+    }
+
+    public function status(Request $request){
+
+        $job = Job::find(1);
+
+        $job->status = 'INACTIVE';
+        $job->save();
+
+        $data=[
+            'status'=> 'success',
+            'code'=> 200,
+            'job' => $job
+        ];
+        return response()->json($data);
     }
 
     /**
@@ -88,6 +103,6 @@ class JobController extends Controller
      */
     public function destroy(Job $job)
     {
-        //
+        return $job;
     }
 }

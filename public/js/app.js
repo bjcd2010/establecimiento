@@ -2003,10 +2003,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      jobs: []
+      jobs: [],
+      job: {}
     };
   },
   mounted: function mounted() {
@@ -2019,6 +2032,18 @@ __webpack_require__.r(__webpack_exports__);
       axios.get('/jobs').then(function (response) {
         _this.jobs = response.data.jobs;
         console.log(jobs);
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    STATUS: function STATUS(id) {
+      var _this2 = this;
+
+      axios.put('/jobs/update', {
+        'id': id
+      }).then(function (response) {
+        _this2.job = response.data.job;
+        console.log(_this2.job);
       })["catch"](function (error) {
         console.log(error);
       });
@@ -37985,13 +38010,50 @@ var render = function() {
           "tbody",
           _vm._l(_vm.jobs, function(job) {
             return _c("tr", { key: job.id }, [
-              _c("th", { attrs: { scope: "row" } }, [_vm._v("1")]),
+              _c("th", {
+                attrs: { scope: "row" },
+                domProps: { textContent: _vm._s(job.id) }
+              }),
               _vm._v(" "),
               _c("td", { domProps: { textContent: _vm._s(job.name) } }),
               _vm._v(" "),
               _c("td", { domProps: { textContent: _vm._s(job.description) } }),
               _vm._v(" "),
-              _c("td", { domProps: { textContent: _vm._s(job.pay) } })
+              _c("td", { domProps: { textContent: _vm._s(job.pay) } }),
+              _vm._v(" "),
+              _c("td", [
+                job.status == "ACTIVE"
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-success",
+                        on: {
+                          click: function($event) {
+                            return _vm.STATUS(job.id)
+                          }
+                        }
+                      },
+                      [_vm._v("Activo")]
+                    )
+                  : _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-danger",
+                        on: {
+                          click: function($event) {
+                            return _vm.STATUS(job)
+                          }
+                        }
+                      },
+                      [_vm._v("Activar")]
+                    )
+              ]),
+              _vm._v(" "),
+              _c("td", {
+                domProps: { textContent: _vm._s(job.establecimiento.name) }
+              }),
+              _vm._v(" "),
+              _vm._m(1, true)
             ])
           }),
           0
@@ -38009,12 +38071,28 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Nombre")]),
+        _c("th", [_vm._v("Nombre")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Descripción")]),
+        _c("th", [_vm._v("Descripción")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Pago")])
+        _c("th", [_vm._v("Pago")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Estado")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Tienda")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Acciones")])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", { attrs: { colspan: "2" } }, [
+      _c("button", { staticClass: "btn btn-warning" }, [_vm._v("Edit")]),
+      _vm._v(" "),
+      _c("button", { staticClass: "btn btn-danger" }, [_vm._v("Del")])
     ])
   }
 ]
@@ -38488,20 +38566,20 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
+  return _c(
+    "div",
+    { staticClass: "container" },
+    [
       _c("h1", { staticClass: "mt-4 text-center" }, [
-        _vm._v("Empleos Ofrecidos 2020...")
-      ])
-    ])
-  }
-]
+        _vm._v("Empleos Ofrecidos 2020")
+      ]),
+      _vm._v(" "),
+      _c("jobs")
+    ],
+    1
+  )
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -39006,7 +39084,7 @@ var render = function() {
     { staticClass: "container" },
     [
       _c("h1", { staticClass: "mt-4 text-center" }, [
-        _vm._v("Mis Productos...")
+        _vm._v("Mis Productos 2020...")
       ]),
       _vm._v(" "),
       _c("products")
@@ -39040,7 +39118,9 @@ var render = function() {
     "div",
     { staticClass: "container" },
     [
-      _c("h1", { staticClass: "mt-4 text-center" }, [_vm._v("Mis Tiendas...")]),
+      _c("h1", { staticClass: "mt-4 text-center" }, [
+        _vm._v("Mis Tiendas 2020...")
+      ]),
       _vm._v(" "),
       _c("pymes")
     ],
