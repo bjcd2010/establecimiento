@@ -3,10 +3,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Ejemplo Component</div>
+                <div class="card-header">Home Component</div>
 
                 <div class="card-body">
-                    Soy componente de ejemplo
+                    Soy componente de Home Nuevo
                 </div>
             </div>
         </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Establecimiento;
 use Illuminate\Http\Request;
 
+
 class EstablecimientoController extends Controller
 {
     /**
@@ -14,7 +15,15 @@ class EstablecimientoController extends Controller
      */
     public function index()
     {
-        //
+        $establecimientos = Establecimiento::all();
+
+        $data = [
+            'status'=> 'success',
+            'code'=> 200,
+            'pymes'=> $establecimientos->load('subcategory')
+        ];
+
+        return response()->json($data);
     }
 
     /**

@@ -15,8 +15,8 @@ class CreateEstablecimientosTable extends Migration
     {
         Schema::create('establecimientos', function (Blueprint $table) {
             $table->id();
-            $table->string('NAME');
-            $table->foreignId('subcategories_id')->constrained();
+            $table->string('name');
+            $table->foreignId('subcategory_id')->constrained();
             $table->string('image');
             $table->string('address');
             $table->string('Urbanization');

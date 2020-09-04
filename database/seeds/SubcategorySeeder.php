@@ -15,87 +15,87 @@ class SubcategorySeeder extends Seeder
     public function run()
     {
         DB::table('subcategories')->insert([
-            'name' => 'Ninos Lan Center',
-            'slug' => Str::slug('Ninos Lan Center'),
+            'name' => 'Internet - Lan Center',
+            'slug' => Str::slug('internet Lan Center'),
             'category_id' => 2,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
 
         DB::table('subcategories')->insert([
-            'name' => 'Palao Lan Center',
-            'slug' => Str::slug('Palao Lan Center'),
+            'name' => 'Bares',
+            'slug' => Str::slug('bares'),
             'category_id' => 2,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
 
         DB::table('subcategories')->insert([
-            'name' => 'Esquina Lan Center',
-            'slug' => Str::slug('Esquina Lan Center'),
+            'name' => 'Discotekas',
+            'slug' => Str::slug('discotekas'),
             'category_id' => 2,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
 
         DB::table('subcategories')->insert([
-            'name' => 'Pollos a la Brasa Totos',
-            'slug' => Str::slug('Pollos a la Brasa Totos'),
+            'name' => 'Pollos a la Brasa',
+            'slug' => Str::slug('Pollos a la Brasa'),
             'category_id' => 1,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
         DB::table('subcategories')->insert([
-            'name' => 'Pollos a la Brasa El Gordo',
-            'slug' => Str::slug('Pollos a la Brasa El Gordo'),
-            'category_id' => 1,
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now()
-        ]);
-
-        DB::table('subcategories')->insert([
-            'name' => 'Pollos a la Brasa Chicken',
-            'slug' => Str::slug('Pollos a la Brasa Chicken'),
+            'name' => 'Chifa',
+            'slug' => Str::slug('chifa'),
             'category_id' => 1,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
 
         DB::table('subcategories')->insert([
-            'name' => 'Cevicheria Juanita',
-            'slug' => Str::slug('Cevicheria Juanita'),
+            'name' => 'Pizzería',
+            'slug' => Str::slug('pizzeria'),
             'category_id' => 1,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
 
         DB::table('subcategories')->insert([
-            'name' => 'Cevicheria La Segunda',
-            'slug' => Str::slug('Cevicheria la Segunda'),
+            'name' => 'Cevicheria',
+            'slug' => Str::slug('Cevicheria'),
             'category_id' => 1,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
 
         DB::table('subcategories')->insert([
-            'name' => 'Cevicheria Palao',
-            'slug' => Str::slug('Cevicheria Palao'),
+            'name' => 'Chicharrón',
+            'slug' => Str::slug('chicharron'),
             'category_id' => 1,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
 
         DB::table('subcategories')->insert([
-            'name' => 'Restaurant Jimmys',
-            'slug' => Str::slug('Restaurant jimmys'),
+            'name' => 'Restaurant criollo',
+            'slug' => Str::slug('restaurant criollo'),
             'category_id' => 1,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
 
         DB::table('subcategories')->insert([
-            'name' => 'Restaurant Palao',
-            'slug' => Str::slug('restaurant palao'),
+            'name' => 'Restaurant Vegano',
+            'slug' => Str::slug('Restaurant vegano'),
+            'category_id' => 1,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        ]);
+
+        DB::table('subcategories')->insert([
+            'name' => 'Anticuchos - Pancitas',
+            'slug' => Str::slug('anticuchos pancitas'),
             'category_id' => 1,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
@@ -110,17 +110,25 @@ class SubcategorySeeder extends Seeder
         ]);
 
         DB::table('subcategories')->insert([
-            'name' => 'chifa POn tu',
-            'slug' => Str::slug('chifa pon tu'),
-            'category_id' => 1,
+            'name' => 'Farmacias',
+            'slug' => Str::slug('farmacias'),
+            'category_id' => 3,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
 
         DB::table('subcategories')->insert([
-            'name' => 'chifa Sta. mercedes',
-            'slug' => Str::slug('chifa sta. mercedes'),
-            'category_id' => 1,
+            'name' => 'Posta Médica',
+            'slug' => Str::slug('posta medica'),
+            'category_id' => 3,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        ]);
+
+        DB::table('subcategories')->insert([
+            'name' => 'Podología',
+            'slug' => Str::slug('podologia'),
+            'category_id' => 3,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);

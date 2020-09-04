@@ -21,3 +21,8 @@ Route::get('/', function () {
 Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
+//Rotes Admin
+Route::resource('pymes', 'EstablecimientoController');
+Route::resource('subcategories', 'SubcategoryController');
+Route::resource('categories', 'CategoryController');
+Route::resource('jobs', 'JobController');

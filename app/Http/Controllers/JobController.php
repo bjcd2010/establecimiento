@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Subcategory;
+use App\Job;
 use Illuminate\Http\Request;
 
-class SubcategoryController extends Controller
+class JobController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,12 +14,12 @@ class SubcategoryController extends Controller
      */
     public function index()
     {
-        $subcategories = Subcategory::where('status', 'ACTIVE')->get();
+        $jobs = Job::all();
 
         $data=[
-            'status'=> 'success',
-            'code' => 200,
-            'subcategories' => $subcategories
+            'status'=>'success',
+            'code'=> 200,
+            'jobs'=>$jobs
         ];
 
         return response()->json($data);
@@ -49,10 +49,10 @@ class SubcategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Subcategory  $subcategory
+     * @param  \App\Job  $job
      * @return \Illuminate\Http\Response
      */
-    public function show(Subcategory $subcategory)
+    public function show(Job $job)
     {
         //
     }
@@ -60,10 +60,10 @@ class SubcategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Subcategory  $subcategory
+     * @param  \App\Job  $job
      * @return \Illuminate\Http\Response
      */
-    public function edit(Subcategory $subcategory)
+    public function edit(Job $job)
     {
         //
     }
@@ -72,10 +72,10 @@ class SubcategoryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Subcategory  $subcategory
+     * @param  \App\Job  $job
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Subcategory $subcategory)
+    public function update(Request $request, Job $job)
     {
         //
     }
@@ -83,10 +83,10 @@ class SubcategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Subcategory  $subcategory
+     * @param  \App\Job  $job
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Subcategory $subcategory)
+    public function destroy(Job $job)
     {
         //
     }
