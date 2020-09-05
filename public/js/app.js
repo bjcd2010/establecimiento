@@ -2019,7 +2019,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       jobs: [],
-      job: {}
+      job: {},
+      msj: ""
     };
   },
   mounted: function mounted() {
@@ -2036,11 +2037,13 @@ __webpack_require__.r(__webpack_exports__);
         console.log(error);
       });
     },
-    STATUS: function STATUS(id) {
+    status: function status(id) {
       var _this2 = this;
 
-      axios.put('/jobs/update', {
-        'id': id
+      axios.get('/job/status/', {
+        params: {
+          "id": id
+        }
       }).then(function (response) {
         _this2.job = response.data.job;
         console.log(_this2.job);
@@ -38029,7 +38032,7 @@ var render = function() {
                         staticClass: "btn btn-success",
                         on: {
                           click: function($event) {
-                            return _vm.STATUS(job.id)
+                            return _vm.status(1)
                           }
                         }
                       },
@@ -38041,7 +38044,7 @@ var render = function() {
                         staticClass: "btn btn-danger",
                         on: {
                           click: function($event) {
-                            return _vm.STATUS(job)
+                            return _vm.status(2)
                           }
                         }
                       },
@@ -38571,7 +38574,7 @@ var render = function() {
     { staticClass: "container" },
     [
       _c("h1", { staticClass: "mt-4 text-center" }, [
-        _vm._v("Empleos Ofrecidos 2020")
+        _vm._v("Empleos Ofrecidos")
       ]),
       _vm._v(" "),
       _c("jobs")

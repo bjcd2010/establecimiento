@@ -23,8 +23,8 @@
                     <td v-text="job.description"></td>
                     <td v-text="job.pay"></td>
                     <td>
-                        <button v-if="job.status=='ACTIVE'" class="btn btn-success" @click="STATUS(job.id)">Activo</button>
-                        <button v-else class="btn btn-danger" @click="STATUS(job)">Activar</button>
+                        <button v-if="job.status=='ACTIVE'" class="btn btn-success" @click="status(1)">Activo</button>
+                        <button v-else class="btn btn-danger" @click="status(2)">Activar</button>
                     </td>
                     <td v-text="job.establecimiento.name"></td>
                     <td colspan="2">
@@ -44,7 +44,8 @@ export default {
     data: function () {
         return {
             jobs: [],
-            job: {}
+            job: {},
+            msj: ""
 
         }
     },
@@ -64,11 +65,12 @@ export default {
                 });
         },
 
-        STATUS(id) {
-            axios.put('/jobs/update', {
-                    'id': id
-                })
-                .then(response => {
+        status(id) {
+            axios.get('/job/status/', {
+                    params: {
+                        "id": id
+                    }
+                }).then(response => {
                     this.job = response.data.job;
                     console.log(this.job);
                 })

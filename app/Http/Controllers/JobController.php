@@ -82,17 +82,18 @@ class JobController extends Controller
 
     public function status(Request $request){
 
-        $job = Job::find(1);
+         $job = Job::find(1);
+        //$id = $request->input('id');
+        //$job = Job::find($id);
+         $data=[
+             'status'=>'success',
+             'code'=> 200,
+             'job'=>$job
+         ];
 
-        $job->status = 'INACTIVE';
-        $job->save();
+         return response()->json($data);
 
-        $data=[
-            'status'=> 'success',
-            'code'=> 200,
-            'job' => $job
-        ];
-        return response()->json($data);
+        //return 
     }
 
     /**
