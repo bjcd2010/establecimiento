@@ -80,20 +80,20 @@ class JobController extends Controller
         //return 'upadate';
     }
 
-    public function status(Request $request){
+    public function status($id){
 
          $job = Job::find(1);
         //$id = $request->input('id');
         //$job = Job::find($id);
-         $data=[
-             'status'=>'success',
-             'code'=> 200,
-             'job'=>$job
-         ];
+          $data=[
+              'status'=>'success',
+              'code'=> 200,
+              'job'=>$job
+          ];
 
-         return response()->json($data);
+          return response()->json($data);
 
-        //return 
+        //return $request->id;
     }
 
     /**

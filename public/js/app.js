@@ -2037,18 +2037,27 @@ __webpack_require__.r(__webpack_exports__);
         console.log(error);
       });
     },
-    status: function status(id) {
-      var _this2 = this;
-
+    estado: function estado(id) {
+      var me = this;
       axios.get('/job/status/', {
         params: {
-          "id": id
+          "id": 1
         }
       }).then(function (response) {
-        _this2.job = response.data.job;
-        console.log(_this2.job);
+        me.job = response.data.job;
+        console.log(response.data);
       })["catch"](function (error) {
         console.log(error);
+      });
+    },
+    getStatus: function getStatus(id) {
+      var _this2 = this;
+
+      var url = '/job/status/' + id;
+      axios.get(url).then(function (respuesta) {
+        //console.log('respuesta')
+        //console.log(respuesta)
+        _this2.job = respuesta.data.job;
       });
     }
   }
@@ -38032,7 +38041,7 @@ var render = function() {
                         staticClass: "btn btn-success",
                         on: {
                           click: function($event) {
-                            return _vm.status(1)
+                            return _vm.getStatus(1)
                           }
                         }
                       },
@@ -38044,7 +38053,7 @@ var render = function() {
                         staticClass: "btn btn-danger",
                         on: {
                           click: function($event) {
-                            return _vm.status(2)
+                            return _vm.getStatus(2)
                           }
                         }
                       },

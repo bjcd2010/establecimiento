@@ -26,5 +26,5 @@ Route::resource('pymes', 'EstablecimientoController');
 Route::resource('subcategories', 'SubcategoryController');
 Route::resource('categories', 'CategoryController');
 Route::resource('jobs', 'JobController');
-Route::get('/job/status/', 'JobController@status')->name('status');
+Route::get('/job/status/{id}', 'JobController@status');
 Route::get('/job/todos', 'JobController@todos')->name('todos');
