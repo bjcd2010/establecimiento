@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Establecimiento;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 
 class EstablecimientoController extends Controller
 {
@@ -15,7 +15,7 @@ class EstablecimientoController extends Controller
      */
     public function index()
     {
-        $establecimientos = Establecimiento::all();
+        $establecimientos = Establecimiento::where('user_id', Auth::id())->get();
 
         $data = [
             'status'=> 'success',
